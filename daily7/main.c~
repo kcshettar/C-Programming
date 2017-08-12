@@ -1,0 +1,36 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include "stack.h"
+#include "status.h"
+
+int main(int argc, char* argv[])
+{
+	STACK hStack;
+	FILE *fp;
+	int number;
+	int i;
+
+	hStack = stack_init_default();
+	fp = fopen("input.txt", "r");
+
+	printf("How many tests do you want to perform: ");
+	scanf("%d", &number);
+
+	for (i = 0; i < number; i++)
+	{
+		if (check_order(hStack, fp))
+		{
+			printf("YES\n");
+		}
+		else
+		{
+			printf("NO\n");
+		}
+	}
+
+
+	stack_destroy(&hStack);
+	fclose(fp);
+	getchar();
+	return 0;
+}

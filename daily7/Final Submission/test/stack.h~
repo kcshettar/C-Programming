@@ -1,0 +1,23 @@
+#ifndef DAILY7_H
+#define DAILY7_H
+
+#include "status.h"
+#include<stdio.h>
+typedef void* STACK;
+
+STACK stack_init_default(void);
+
+char stack_top(STACK hStack);
+//top
+
+Status stack_pop_back(STACK hStack);
+//pop back
+
+Status stack_push_back(STACK hStack, char item);
+//push back
+
+Status check_order(STACK hStack, FILE* fp);
+
+void stack_destroy(STACK* phStack);
+
+#endif
